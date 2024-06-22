@@ -9,7 +9,7 @@ const thoughtController = {
                 console.log(err);
                 res.status(400).json(err);
             });
-    }
+    },
 
     // get one thought by id
     async getThoughtById({ params },
@@ -27,7 +27,7 @@ const thoughtController = {
                 console.log(err);
                 res.status(400).json(err);
             });
-    }
+    },
 
     // create thought
     async createThought(req, res) {
@@ -38,7 +38,7 @@ const thoughtController = {
             { new: true }
         );
         res.json(ThoughtData);
-    }
+    },
 
     // update thought by id
     async updateThought({ params, body }, res) {
@@ -52,7 +52,7 @@ const thoughtController = {
                 res.json(dbThoughtData);
             })
             .catch(err => res.status(400).json(err));
-    }
+    },
 
     // delete thought
     async deleteThought({ params }, res
@@ -60,7 +60,7 @@ const thoughtController = {
         Thought.findOneAndDelete({ _id: params.id })
             .then(dbThoughtData => res.json(dbThoughtData))
             .catch(err => res.status(400).json(err));
-    }
+    },
 
     // add reaction
     async addReaction({ params, body }, res) {
@@ -77,7 +77,7 @@ const thoughtController = {
                 res.json(dbThoughtData);
             })
             .catch(err => res.json(err));
-    }
+    },
 
     // remove reaction
     async removeReaction({ params }, res) {
